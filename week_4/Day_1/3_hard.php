@@ -26,17 +26,75 @@
     // Put your code here!
     ///////////////////////////
 
+     class Item {
+        public $name;
+        public $price;
+        public $tax;
+        public function __construct($name, $price){
+            $this->name = $name;
+            $this->price = $price;
+        }
+        public function setTax($tax){
+            $this->tax = $tax;
+        }
+    }
+    
+    class ShoppingCart {
+        public $items = array();
+        var $preTax;
+        var $calculateTax;
+        var $postTax;
+        
+        public function addItem(Item $item){
+            $this->items[$item->name] = $item;
+        }
+        
+        public function getCostBeforeTax(){
+            foreach($this->items as $item){
+                $preTax = $item->price + $preTax;
+            }
+            return $preTax;
+        }
+        public function getTaxAmount(){
+           foreach($this->items as $item){
+               $calculateTax = ($item->price * $item->tax) + $calculateTax;
+           }
+           return $calculateTax;
+        }
+        public function getCostAfterTax(){
+            $postTax = ($this->getTaxAmount() + $this->getCostBeforeTax());
+            return $postTax;
+        }
+        public function removeItem($item){
+            unset($this->items[$item]);
+        }
+    }
 
+    class Book extends Item {
+        public $tax = 0;
+    }
+    
+    
+    class DVD extends Item {
+        public $tax = .05;
+    }
+    
+    class VideoGame extends Item {
+                public $tax = .1;
+
+    }
+    
     $cart = new ShoppingCart();
     $cart->addItem(new Book('Cheap Book', 2.99));
     $cart->addItem(new Book('Expensive Book', 24.99));
     $cart->addItem(new DVD('Movie', 12.99));
     $cart->addItem(new VideoGame('Video Game', 59.99));
-
+   // var_dump($cart);
     $beforeTax = number_format($cart->getCostBeforeTax(), 2);
     $taxAmount = number_format($cart->getTaxAmount(), 2);
     $afterTax = number_format($cart->getCostAfterTax(), 2);
-
+    $cart->removeItem("Expensive Book");
+   // var_dump($cart);
     echo "<p>Total cost before tax: \$$beforeTax</p>";
     echo "<p>Tax amount: \$$taxAmount</p>";
     echo "<p>Total cost after tax: \$$afterTax</p>";

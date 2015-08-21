@@ -22,6 +22,26 @@
     // Put your code here!
     ///////////////////////////
 
+    class Rectangle {
+        public $width;
+        public $height;
+
+        public function __construct($width, $height){
+            $this->width = $width;
+            $this->height = $height;
+        }
+        public function getArea(){
+            return($this->height * $this->width);   
+        }
+        public function getPerimeter(){
+            return(($this->height*2)+($this->width*2));
+        }
+        public function isSquare(){
+            if($width == $height){
+                return true;
+            }
+        }
+    }
 
     $width = 160;
     $height = 75;
@@ -29,7 +49,7 @@
     echo "<h2>With a width of $width and a height of $height...</h2>";
 
     $r = new Rectangle($width, $height);
-
+  
     echo '<p>The area of the rectangle is ' . $r->getArea() . '</p>';
     echo '<p>The perimeter of the rectangle is ' . $r->getPerimeter() . '</p>';
 
