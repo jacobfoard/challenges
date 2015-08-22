@@ -53,18 +53,31 @@
         public function getBundlesByZip($zip){
             if(is_int($zip)){
                 $zip = strval($zip);
-                if((strpos($zip, '28')) or (strpos($zip, '27')) or (strpos($zip, '28'))){
-                    
+                if(strpos($zip, '27') === 0){
                     return array(
                             "Budget + SlowNet" => 49.98,
                             "Budget + FastNet" => 79.98,
                             "Regular + SlowNet" => 69.98,
-                            "Regular + FastNet" => 99.98,
-                            "Potato + SlowNet" => 109.98,
-                            "Potato + FastNet" => 139.98
+                            "Regular + FastNet" => 99.98
                             );
                 }
-                else {
+                if(strpos($zip, '28') === 0){
+                    return array(
+                            "Budget + SlowNet" => 49.98,
+                            "Budget + FastNet" => 79.98,
+                            "Regular + SlowNet" => 69.98,
+                            "Regular + FastNet" => 99.98
+                            );
+                }
+                if(strpos($zip, '29') === 0){
+                    return array(
+                            "Budget + SlowNet" => 49.98,
+                            "Budget + FastNet" => 79.98,
+                            "Regular + SlowNet" => 69.98,
+                            "Regular + FastNet" => 99.98
+                            );
+                }
+                if(strpos($zip, '97') === 0) {
                      return array(
                             "Budget + SlowNet" => 44.98,
                             "Budget + FastNet" => 74.98,
@@ -72,22 +85,53 @@
                             "Regular + FastNet" => 94.98,
                             "Potato + SlowNet" => 104.98,
                             "Potato + FastNet" => 134.99
+                            );
+                }
+                if(strpos($zip, '84') === 0) {
+                     return array(
+                            "Budget + SlowNet" => 44.98,
+                            "Budget + FastNet" => 74.98,
+                            "Regular + SlowNet" => 64.98,
+                            "Regular + FastNet" => 94.98,
+                            "Potato + SlowNet" => 104.98,
+                            "Potato + FastNet" => 134.99
+                            );
+                }
+                else{
+                    return array(
+                            "Budget + SlowNet" => 44.98,
+                            "Budget + FastNet" => 74.98,
+                            "Regular + SlowNet" => 64.98,
+                            "Regular + FastNet" => 94.98
                             );
                 }
             }
             else{
-                if((strpos($zip, '28')) or (strpos($zip, '27')) or (strpos($zip, '28'))){
-                    
+                if(strpos($zip, '27') === 0){
                     return array(
                             "Budget + SlowNet" => 49.98,
                             "Budget + FastNet" => 79.98,
                             "Regular + SlowNet" => 69.98,
-                            "Regular + FastNet" => 99.98,
-                            "Potato + SlowNet" => 109.98,
-                            "Potato + FastNet" => 139.98
+                            "Regular + FastNet" => 99.98
                             );
                 }
-                else {
+                if(strpos($zip, '28') === 0){
+                    return array(
+                            "Budget + SlowNet" => 49.98,
+                            "Budget + FastNet" => 79.98,
+                            "Regular + SlowNet" => 69.98,
+                            "Regular + FastNet" => 99.98
+                            );
+                }
+                if(strpos($zip, '29') === 0){
+                    return array(
+                            "Budget + SlowNet" => 49.98,
+                            "Budget + FastNet" => 79.98,
+                            "Regular + SlowNet" => 69.98,
+                            "Regular + FastNet" => 99.98
+                            );
+                }
+                if(strpos($zip, '97') === 0) {
                      return array(
                             "Budget + SlowNet" => 44.98,
                             "Budget + FastNet" => 74.98,
@@ -97,7 +141,25 @@
                             "Potato + FastNet" => 134.99
                             );
                 }
-            }                
+                if(strpos($zip, '84') === 0) {
+                     return array(
+                            "Budget + SlowNet" => 44.98,
+                            "Budget + FastNet" => 74.98,
+                            "Regular + SlowNet" => 64.98,
+                            "Regular + FastNet" => 94.98,
+                            "Potato + SlowNet" => 104.98,
+                            "Potato + FastNet" => 134.99
+                            );
+                }
+                else{
+                    return array(
+                            "Budget + SlowNet" => 44.98,
+                            "Budget + FastNet" => 74.98,
+                            "Regular + SlowNet" => 64.98,
+                            "Regular + FastNet" => 94.98
+                            );
+                }
+            }
         }
     }
 
@@ -118,8 +180,11 @@
     $bundles = $pricing->getBundlesByZip($zip);
     echo "<h3>Camcost Bundles for customers in $zip</h3>";
     showBundles($bundles);
-
     
+    $zip = '97101';
+    $bundles = $pricing->getBundlesByZip($zip);
+    echo "<h3>Camcost Bundles for customers in $zip</h3>";
+    showBundles($bundles);
 
     ?>
 
