@@ -25,7 +25,11 @@
 	<body>
         <p>
             <?php
-
+            $i = 0;
+            while($i < 7){
+              $i = rand(1,7);
+              echo "$i</br>";
+            }
           	    // code goes here ...
 
             ?>

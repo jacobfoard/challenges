@@ -16,9 +16,13 @@
 	<body>
         <p>
           <?php
-            $number = 3 // this came from the previous page as a post variable
-
+            $number = 3; // this came from the previous page as a post variable
+            $words = array( "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten");
           	// code goes here ...
+          	if($number > 10){
+          	  echo "Nothing is greather than 10";
+          	}
+          	echo $words[$number];
           ?>
         </p>
 	</body>

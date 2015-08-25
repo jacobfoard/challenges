@@ -25,9 +25,13 @@
 
             // print here
 
-
-            /*
-
+            foreach($faces as $key=>$face){
+                foreach($suits as $suit){
+                    $newKey = "$key of $suit";
+                    $deck[$newKey] = $face;       
+                }
+            }
+            var_dump($deck);
         ?>
 
     </p>

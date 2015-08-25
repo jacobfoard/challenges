@@ -13,8 +13,10 @@
 
         <?php
 
-            // code goes here...
-
+            for($i = 0; $i < 21; $i++){
+                $j = $i + $j;
+                echo $j . "</br>";
+            }
 
         ?>
     </p>

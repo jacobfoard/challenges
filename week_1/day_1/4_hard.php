@@ -30,6 +30,17 @@
           	];
 
           	// code goes here ...
+          	
+          	if(!in_array("April", $monthExcludeArray)){
+          	    echo "April </br>";
+          	}
+          	if(!in_array("September", $monthExcludeArray)){
+          	    echo "September </br>";
+          	}
+          	if(!in_array("December", $monthExcludeArray)){
+          	    echo "December";
+          	}
+          	
           ?>
         </p>
 	</body>

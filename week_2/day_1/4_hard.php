@@ -27,7 +27,22 @@
 
 
                 // code goes here ...
-
+                $numsMod3 = array();
+                $numsMod6 = array();
+                
+                for($i=1; $i < 101; $i++){
+                    if(($i % 3) == 0){
+                        array_push($numsMod3, $i);
+                    }
+                    if((($i % 3) == 0) && (($i % 6) == 0)){
+                        array_push($numsMod6, $i);
+                    }
+                }
+                
+                echo implode(", ", $numsMod6);
+                echo "</br>";
+                echo "There are " . count($numsMod3) . " numbers divisible by three and " . count($numsMod6) . " divisible by three and six";
+                
             ?>
         </p>
 	</body>

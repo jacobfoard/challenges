@@ -41,7 +41,139 @@
 
              	Winner will be determined by whoever has successfully implemented this AND has the best logic
             */
-             
+            
+            //Function to shuffle the asssocative array
+            function shuffle_assoc(&$array) {
+                $keys = array_keys($array);
+        
+                shuffle($keys);
+        
+                foreach($keys as $key) {
+                    $new[$key] = $array[$key];
+                }
+
+                $array = $new;
+
+                return true;
+            }
+                
+            //Function that creates a deck of 52 cards then shuffles the deck to a random order    
+            function createDeck() {
+                $suits = array ("clubs", "diamonds", "hearts", "spades");
+                $faces = array (
+                    "Ace" => 1, "2" => 2,"3" => 3, "4" => 4, "5" => 5, "6" => 6, "7" => 7,
+                    "8" => 8, "9" => 9, "10" => 10, "Jack" => 10, "Queen" => 10, "King" => 10
+                );
+    
+                $deck = array();
+    
+                foreach($faces as $key=>$face){
+                    foreach($suits as $suit){
+                        $newKey = "$key of $suit";
+                        $deck[$newKey] = $face;       
+                    }
+                }
+                
+                shuffle_assoc($deck);
+
+                return $deck;
+            }
+              
+            //Function that deals a set of X cards and then removes them from the deck of possible cards
+            function dealCards(&$deck, $number_of_cards = 0) {
+                $randKey = array_rand($deck, $number_of_cards);
+                $cards = array();
+                for($i = 0; $i < count($randKey); $i++){
+                    array_push($cards, $randKey[$i]);
+                    unset($deck[$randKey[$i]]);
+                }
+                    
+                return $cards;
+            }
+            
+            $validDeck = createDeck();
+            $deck = createDeck();
+            $num_players = 2;
+            $num_cards_in_deck = count($deck);
+            $num_cards_to_give_each_player = 2;
+            
+
+            $winCondtion = false;
+            $playerBank = 300;
+            
+
+            $num_players = 2;    
+
+            while($playerBank > 0){
+                
+                //while($winCondtion == false){
+                    $validDeck = createDeck();
+                    $deck = createDeck();
+    
+                    $players = array(); 
+                    for($i = 1; $i <= $num_players; $i++) {
+                        $players[$i] = dealCards($deck, 2);
+                    }
+                 
+                    $dealerCard1 = $players[1][0];
+                    $dealerCard2 = $players[1][1];
+                    $dealerCard4 = $players[1][3][0];
+                    $dealerValue1 = $validDeck[$dealerCard1];
+                    $dealerValue2 = $validDeck[$dealerCard2];
+                    $dealerValueTotal = $dealerValue1 + $dealerValue2;
+            
+                    $playerCard1 = $players[2][0];
+                    $playerCard2 = $players[2][1];
+                    $playerValue1 = $validDeck[$playerCard1];
+                    $playerValue2 = $validDeck[$playerCard2];
+                    
+                    $playerValue4 = $validDeck[$playerCard4];
+                    $playerValueTotal = $playerValue1 + $playerValue2;
+                         
+                    if($playerValueTotal < 17){
+                        $players[2][2] = dealCards($deck, 2);
+                        $playerCard3 = $players[2][2][0];
+                        $playerValue3 = $validDeck[$playerCard3];
+                        $playerValueTotal = $playerValue1 + $playerValue2 + $playerValue3;
+                    }
+        
+                    if(($dealerValueTotal < $playerValueTotal) && ($dealerValueTotal <= 21)){
+                        $players[1][2] = dealCards($deck, 2);
+                        $dealerCard3 = $players[1][2][0];
+                        $dealerValue3 = $validDeck[$dealerCard3];
+                        $dealerValueTotal = $dealerValue1 + $dealerValue2 + $dealerValue3;
+                    }
+                    else{
+                        $winCondtion = true;
+                        if($playerValueTotal > $dealerValueTotal){
+                            $playerBank = $playerBank + 200;
+                        }
+                        else{
+                            $playerBank = $playerBank - 100;    
+                        }
+                    }
+                    
+                    if(($dealerValueTotal < $playerValueTotal) && ($dealerValueTotal <= 21)){
+                        $players[1][3] = dealCards($deck, 2);
+                        $dealerCard4 = $players[1][3][0];
+                        $dealerValue4 = $validDeck[$dealerCard4];
+                        $dealerValueTotal = $dealerValue1 + $dealerValue2 + $dealerValue3 + $dealerValue4;
+                    }else{
+                        $winCondtion = true;
+                        if($playerValueTotal > $dealerValueTotal){
+                            $playerBank = $playerBank + 200;
+                        }else{
+                            $playerBank = $playerBank - 100;    
+                        }
+                    }
+                    
+                //}
+            }
+            
+            var_dump($players);
+            echo $dealerValueTotal;
+            var_dump($playerValueTotal);
+            //}
         ?>
 
     </p>

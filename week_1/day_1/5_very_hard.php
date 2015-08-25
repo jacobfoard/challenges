@@ -16,13 +16,37 @@
     array('name' => 'Package 6', 'price' => 10.99),
     array('name' => 'Package 7', 'price' => 11.00),
   );
+  
+function val_sort($array,$key) {
+	
+	//Loop through and get the values of our specified key
+	foreach($array as $k=>$v) {
+		$b[] = strtolower($v[$key]);
+	}
+	
+	print_r($b);
+	
+	asort($b);
+	
+	echo '<br />';
+	print_r($b);
+	
+	foreach($b as $k=>$v) {
+		$c[] = $array[$k];
+	}
+	
+	return $c;
+}
+
+  $packagesArray = val_sort($packagesArray,'price');
 ?>
+
 <!DOCTYPE html>
 <html>
   <head></head>
 	<body>
       <h1>Packages</h1>
-      <p>Here are all the packages we offer and there price:</p>
+      <p>Here are all the packages we offer and their price:</p>
       <table>
         <th><td>Name</td><td>Price</td></th>
         <!-- 
