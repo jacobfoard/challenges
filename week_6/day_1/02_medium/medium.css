@@ -1,0 +1,48 @@
+.quarter-circle1 {
+    background-color:red;
+    height:150px;
+    width: 150px;
+    border-radius: 150px 0 0 0;
+    display:inline-block;
+    text-align:center;
+    vertical-align:middle;
+    padding:0;
+    margin-bottom:5px;
+}
+.quarter-circle2 {
+    background-color:yellow;
+    height:150px;
+    width: 150px;
+    border-radius: 0 150px 0 0;
+    display:inline-block;
+    text-align:center;
+    vertical-align:middle;
+    padding:0;
+    margin-bottom:5px;
+}
+
+.quarter-circle4 {
+    background-color:blue;
+    height:150px;
+    width: 150px;
+    border-radius: 0 0 150px 0;
+    display:inline-block;
+    text-align:center;
+    vertical-align:middle;
+    color:white;
+    padding:0;
+    margin:0;
+}
+
+.quarter-circle3 {
+    background-color:green;
+    height:150px;
+    width: 150px;
+    border-radius: 0 0 0 150px;
+    display:inline-block;
+    text-align:center;
+    vertical-align:middle;
+    color:white;
+    padding:0;
+    margin:0;
+}

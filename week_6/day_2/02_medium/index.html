@@ -6,5 +6,27 @@
         https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/max
 -->
 <script>
-   var numbers = [22, 55, 123, 2, 234, 32, 1.2, 23, 102, 92, 109];
+
+    window.onload = function() {
+       var numbers = [22, 55, 123, 2, 234, 32, 1.2, 23, 102, 92, 109];
+        
+        function getMaxOfArray(numArray) {
+            return Math.max.apply(null, numArray);
+        }
+        
+        function getMinOfArray(numArray) {
+            return Math.min.apply(null, numArray);
+        }
+        
+        document.getElementById("div1").innerHTML = "Max: " + getMaxOfArray(numbers) + "</br>" + "Min: " + getMinOfArray(numbers);
+    }   
 </script>
+
+<!DOCTYPE html>
+<html>
+    <body>
+        <div id="div1">
+            
+        </div>
+    </body>
+</html>
