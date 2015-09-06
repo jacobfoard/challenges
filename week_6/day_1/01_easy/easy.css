@@ -1,0 +1,150 @@
+* {
+    box-sizing: border-box;
+}
+
+.masthead{
+    background-color:#777;
+    height:100px;
+    line-height:100px;
+    width:100%;
+    margin-bottom:20px;
+}
+
+.logo{
+    color:white;
+    float:left;
+    padding-left:15px;
+}
+
+.logo a{
+    color:white;
+    text-decoration:none;
+}
+
+.nav-list{
+    float:right;
+    margin:0;
+    padding:0;
+}
+
+.nav-link{
+    display:inline;
+    padding:5px 15px;
+    color:white;
+    text-decoration:none;
+}
+
+.nav-link a{
+    color:white;
+    text-decoration:none;
+}
+
+.main{
+    padding:20px;
+    margin-bottom:10px;
+}
+
+.first-div{
+    overflow:hidden;
+    margin-bottom:20px;
+}
+
+.large-box, .small-box{
+    float:left;
+    width:48%;
+    background-color:#777;
+    color:white;
+    text-align:center;
+}
+
+.large-box{
+    line-height:500px;
+    height:500px;
+    margin-right:2%;
+}
+
+.small-box{
+    line-height:215px;
+    height:215px;
+    margin-left:2%;
+}
+
+.small-box.one{
+    margin-bottom:70px;
+}
+
+.header{
+    height:100px;
+    width:100%;
+    line-height:100px;
+    background-color:#777;
+    text-align:center;
+    color:white;
+    margin-bottom:20px;
+}
+
+.card-container{
+    overflow:hidden;
+    width:100%;
+    margin-bottom:20px;
+}
+
+.card{
+    background-color:#777;
+    color:white;
+    text-align:center;
+    height: 125px;
+    width: 30%;
+    line-height:125px;
+    float:left;
+}
+
+.card.one, .card.two{
+    margin-right:5%;
+}
+
+.tab-container{
+    overflow:hidden;
+    width:100%;
+    margin-bottom:5px;
+}
+
+.tab{
+    background-color:#777;
+    color:white;
+    text-align:center;
+    height:50px;
+    line-height:50px;
+    width:23%;
+    float:left;
+}
+
+.tab.one, .tab.two, .tab.three{
+    margin-right:2.66666%;    
+}
+
+.tab-p{
+    background-color:#777;
+    color:white;
+    text-align:center;
+    width:100%;
+    height:600px;
+    line-height:600px;
+}
+
+.footer{
+    height:100px;
+    width:100%;
+    background-color:#777;
+    line-height:100px;
+    color:white;
+    padding: 0 15px;
+}
+
+.copyright{
+    float:left;
+}
+
+.links{
+    float:right;
+}
