@@ -33,3 +33,58 @@
  * - ???
  * - Profit!
  */
+ 
+function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min)) + min;
+}
+ 
+var andrewJacksonFire = document.getElementById("andrew-shoot");
+var charlesDickinsonFire = document.getElementById("charles-shoot");
+var resetButtom = document.getElementById("reset");
+ 
+ 
+andrewJacksonFire.onclick = function(){
+     
+    var numShots = document.getElementById("andrew-numshots");
+    var numHits = document.getElementById("andrew-numhits");
+    var doesItHit = getRandomInt(0, 20);
+     
+    numShots.innerHTML = parseInt(numShots.innerHTML) + 1;
+    if(doesItHit >= 10){
+        numHits.innerHTML = parseInt(numHits.innerHTML) + 1;
+    }
+    
+    document.getElementById("audio-shot").play();
+};
+ 
+charlesDickinsonFire.onclick = function(){
+    var numShots = document.getElementById("charles-numshots");
+    var numHits = document.getElementById("charles-numhits");
+    var doesItHit = getRandomInt(0, 20);
+     
+    numShots.innerHTML = parseInt(numShots.innerHTML) + 1;
+    if(doesItHit >= 10){
+        numHits.innerHTML = parseInt(numHits.innerHTML) + 1;
+    }
+    
+    document.getElementById("audio-shot").play();
+};
+
+resetButtom.onclick = function(){
+    if(
+        parseInt(document.getElementById("charles-numhits").innerHTML) === 0 &&
+        parseInt(document.getElementById("charles-numshots").innerHTML) === 0 &&
+        parseInt(document.getElementById("andrew-numshots").innerHTML) === 0 &&
+        parseInt(document.getElementById("andrew-numhits").innerHTML) === 0
+    ){
+        alert("You must fire one shot before restarting!");  
+    } else {
+    
+        document.getElementById("charles-numhits").innerHTML = 0; 
+        document.getElementById("charles-numshots").innerHTML = 0;
+        document.getElementById("andrew-numshots").innerHTML = 0;
+        document.getElementById("andrew-numhits").innerHTML = 0;
+        document.getElementById("num-resets").innerHTML = parseInt(document.getElementById("num-resets").innerHTML) + 1;
+    }
+        
+    };

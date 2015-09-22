@@ -18,3 +18,21 @@ function addImage(name) {
   img.src = name;
   document.getElementById('image-box').appendChild(img);
 }
+
+var imgNames = ["2lnw.jpg", "CKfEUPBUwAAVLLk.jpg", "clipboard013.jpg", "jackson.jpg", "washington.jpg"];
+
+
+function getRandomInt(min, max) {
+  return Math.floor(Math.random() * (max - min)) + min;
+}
+
+
+function setImage(){
+  var int = getRandomInt(0, imgNames.length - 1);
+  addImage(imgNames[int]);
+  
+}
+
+for(var i = 0; i < imgNames.length; i++){
+  setTimeout(setImage, 2500);
+}
