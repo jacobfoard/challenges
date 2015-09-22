@@ -38,6 +38,18 @@
     padding:0 2%;
 }
 
+.nav-link ul{
+    display:none;
+    list-style-type:none;
+    background-color:black;
+    color:white;
+    text-align:center;
+}
+
+.nav-link:hover > ul{
+    display:block;
+}
+
 .search-container{
     float:left;
     padding-top:35px;

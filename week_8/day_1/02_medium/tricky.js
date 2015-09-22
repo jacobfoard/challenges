@@ -25,3 +25,19 @@ function getText() {
 function setText(text) {
   return document.getElementById('save-me').value = text;
 }
+
+myStorage = localStorage;
+
+saveButton.onclick = function() {
+  myStorage.setItem("text", getText());
+  document.getElementById("save-me").value = "";
+};
+
+
+loadButton.onclick = function(){
+  setText(myStorage.getItem("text"));
+};
+
+
+
+
